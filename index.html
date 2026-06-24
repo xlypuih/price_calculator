@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <title>Үнэ бодогч</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Үнэ бодогч</h1>
+
+    <div class="card">
+      <h2>Бүтээгдэхүүн нэмэх</h2>
+
+      <input id="productName" type="text" placeholder="Бүтээгдэхүүний нэр">
+      <input id="productPrice" type="text" inputmode="numeric" placeholder="Нэгж үнэ">
+
+      <button onclick="addProduct()">Нэмэх</button>
+    </div>
+
+    <div class="card">
+      <h2>Бүтээгдэхүүний жагсаалт</h2>
+      <div id="productList"></div>
+    </div>
+
+    <div class="card">
+      <h2>Message paste хийх</h2>
+
+      <textarea id="messageInput" placeholder="Энд message paste хийнэ..."></textarea>
+
+      <button onclick="calculateTotal()">Нийт дүн бодох</button>
+    </div>
+
+    <div class="card">
+      <h2>Хариу</h2>
+      <div id="result"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+}
+
+.container {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 15px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+}
+
+input, textarea, button {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 10px;
+  padding: 12px;
+  font-size: 16px;
+}
+
+textarea {
+  height: 180px;
+  resize: vertical;
+}
+
+button {
+  background: #222;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #444;
+}
+
+.product-item, .result-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.total {
+  margin-top: 15px;
+  font-size: 22px;
+  font-weight: bold;
+}
