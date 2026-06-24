@@ -1,31 +1,24 @@
-let products = {
+const products = {
   "салат": 5500,
   "багет": 5300,
   "зайдас": 4000,
   "сендвич": 5500,
   "корсант": 3000,
-  "бургер": 4000
+  "бургер": 4000,
+  "тараг": 4000
 };
 
 function showProducts() {
   const productList = document.getElementById("productList");
-  productList.innerHTML = "";
 
-  for (let name in products) {
-    productList.innerHTML += `
+  productList.innerHTML = Object.entries(products)
+    .map(([name, price]) => `
       <div class="product-item">
-        ${name} - ${products[name]}₮
+        ${name} - ${price.toLocaleString()}₮
       </div>
-    `;
-  }
+    `)
+    .join("");
 }
-
-  products[name] = price;
-
-  document.getElementById("productName").value = "";
-  document.getElementById("productPrice").value = "";
-
-  showProducts();
 
 function calculateTotal() {
   const text = document.getElementById("messageInput").value.toLowerCase();
@@ -37,19 +30,14 @@ function calculateTotal() {
   for (let line of lines) {
     line = line.trim();
 
-    if (line === "" || !line.includes("-")) {
-      continue;
-    }
+    if (line === "" || !line.includes("-")) continue;
 
-    const parts = line.split("-");
+    const match = line.match(/(?:\d+\/\d+-)?(.+)-(\d+)$/);
 
-    const quantity = Number(parts[parts.length - 1]);
+    if (!match) continue;
 
-    let productName = parts
-      .slice(0, parts.length - 1)
-      .join("-")
-      .replace(/^\d+\/\d+-/, "")
-      .trim();
+    const productName = match[1].trim();
+    const quantity = Number(match[2]);
 
     if (products[productName] !== undefined && quantity > 0) {
       const price = products[productName];
@@ -59,7 +47,7 @@ function calculateTotal() {
 
       resultHTML += `
         <div class="result-item">
-          ${productName} | ${quantity}ш × ${price}₮ = ${sum}₮
+          ${productName} | ${quantity}ш × ${price.toLocaleString()}₮ = ${sum.toLocaleString()}₮
         </div>
       `;
     }
@@ -67,7 +55,7 @@ function calculateTotal() {
 
   resultHTML += `
     <div class="total">
-      Нийт дүн: ${total}₮
+      Нийт дүн: ${total.toLocaleString()}₮
     </div>
   `;
 
