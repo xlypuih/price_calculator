@@ -20,21 +20,12 @@ function showProducts() {
   }
 }
 
-function addProduct() {
-  const name = document.getElementById("productName").value.trim().toLowerCase();
-  const price = Number(document.getElementById("productPrice").value.replace(/,/g, ""));
-  if (name === "" || price <= 0) {
-    alert("Бүтээгдэхүүний нэр болон үнийг зөв оруулна уу.");
-    return;
-  }
-
   products[name] = price;
 
   document.getElementById("productName").value = "";
   document.getElementById("productPrice").value = "";
 
   showProducts();
-}
 
 function calculateTotal() {
   const text = document.getElementById("messageInput").value.toLowerCase();
